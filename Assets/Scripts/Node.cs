@@ -14,8 +14,8 @@ public class Node : MonoBehaviour {
     [HideInInspector]
     public bool isUpgraded = false;
 
-    private Renderer rend;
-    private Color startColor;
+    public Renderer rend;
+    public Color startColor;
 
     BuildManager buildManager;
 
@@ -119,8 +119,18 @@ public class Node : MonoBehaviour {
         
     }
 
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
         rend.material.color = startColor;
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            buildManager.SelectTurretToBuild(null);
+            buildManager.DeselectNode();
+            OnMouseExit();
+        }
     }
 }

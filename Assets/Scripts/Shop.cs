@@ -6,7 +6,7 @@ public class Shop : MonoBehaviour {
     public TurretBlueprint missileLauncher;
     public TurretBlueprint laserBeamer;
 
-    BuildManager buildManager;
+    private BuildManager buildManager;
 
     private void Start()
     {
