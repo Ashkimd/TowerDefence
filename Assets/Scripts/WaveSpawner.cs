@@ -21,6 +21,13 @@ public class WaveSpawner : MonoBehaviour {
 
     private int waveIndex = 0;
 
+    private static bool completeLevel;
+
+    private void Start()
+    {
+        completeLevel = false;
+    }
+
     private void Update()
     {
         if (EnemiesAlive > 0)
@@ -28,8 +35,9 @@ public class WaveSpawner : MonoBehaviour {
             return;
         }
 
-        if (waveIndex == waves.Length)
+        if (waveIndex == waves.Length && !completeLevel)
         {
+            completeLevel = true;
             gameManager.WinLevel();
             this.enabled = false;
         }
